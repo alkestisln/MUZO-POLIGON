@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUZO POLİGON - Profesyonel Atış Eğitimi Simülatörü</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <button class="lang-btn active" data-lang="tr">🇹🇷 TR</button>
+            <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+        </div>
+
+        <!-- Background Pattern -->
+        <div class="bg-pattern"></div>
+
+        <!-- Main Content -->
+        <div class="landing-content">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="target-logo pulse">
+                    <div class="target-ring"></div>
+                    <div class="target-ring"></div>
+                    <div class="target-ring"></div>
+                    <div class="target-center"></div>
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div class="title-container">
+                <h1 class="title-main">MUZO</h1>
+                <h2 class="title-sub">POLİGON</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <!-- Subtitle -->
+            <p class="subtitle" data-tr="Profesyonel Atış Eğitimi Simülatörü" data-en="Professional Shooting Training Simulator">
+                Profesyonel Atış Eğitimi Simülatörü
+            </p>
+
+            <!-- Professional Target Display -->
+            <div class="target-display">
+                <div class="target-glow"></div>
+                <div class="professional-target">
+                    <div class="target-ring-pro" style="width: 320px; height: 320px;"></div>
+                    <div class="target-ring-pro" style="width: 256px; height: 256px;"></div>
+                    <div class="target-ring-pro" style="width: 192px; height: 192px;"></div>
+                    <div class="target-ring-pro" style="width: 128px; height: 128px;"></div>
+                    <div class="target-ring-pro" style="width: 64px; height: 64px;"></div>
+                    <div class="target-bullseye"></div>
+                    <div class="score-label center">10</div>
+                    <div class="score-label" style="margin-top: 32px;">8</div>
+                    <div class="score-label" style="margin-top: 48px;">6</div>
+                    <div class="score-label" style="margin-top: 64px;">4</div>
+                    <div class="score-label" style="margin-top: 80px;">2</div>
+                </div>
+            </div>
+
+            <!-- Start Button -->
+            <button class="start-btn" id="start-game">
+                <span class="play-icon">▶</span>
+                <span data-tr="BAŞLAT" data-en="START">BAŞLAT</span>
+            </button>
+
+            <!-- Feature Cards -->
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title" data-tr="Gerçekçi Simülasyon" data-en="Realistic Simulation">Gerçekçi Simülasyon</div>
+                    <div class="feature-desc" data-tr="Profesyonel atış deneyimi" data-en="Professional shooting experience">Profesyonel atış deneyimi</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title" data-tr="Detaylı İstatistikler" data-en="Detailed Statistics">Detaylı İstatistikler</div>
+                    <div class="feature-desc" data-tr="Performans analizi" data-en="Performance analysis">Performans analizi</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title" data-tr="Her Cihazda" data-en="All Devices">Her Cihazda</div>
+                    <div class="feature-desc" data-tr="PC ve mobil uyumlu" data-en="PC and mobile compatible">PC ve mobil uyumlu</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span data-tr="© 2024 MUZO POLİGON - Tüm hakları saklıdır" data-en="© 2024 MUZO POLYGON - All rights reserved">
+                © 2024 MUZO POLİGON - Tüm hakları saklıdır
+            </span>
+        </div>
+    </div>
+
+    <!-- Game Page -->
+    <div id="game-page" class="page">
+        <!-- Header -->
+        <div class="game-header">
+            <button class="back-btn" id="back-to-menu">
+                <span class="home-icon">🏠</span>
+                <span data-tr="Ana Menüye Dön" data-en="Back to Menu">Ana Menüye Dön</span>
+            </button>
+            <div class="game-title-header">
+                <h1>MUZO POLİGON</h1>
+                <p id="game-status" data-tr="Nişan al ve ateş et!" data-en="Aim and shoot!">Nişan al ve ateş et!</p>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-value" id="bullets-count">15</div>
+                <div class="stat-label" data-tr="Kalan Mermi" data-en="Remaining Bullets">Kalan Mermi</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="total-score">0</div>
+                <div class="stat-label" data-tr="Toplam Puan" data-en="Total Score">Toplam Puan</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="shot-count">0</div>
+                <div class="stat-label" data-tr="Atış Sayısı" data-en="Shot Count">Atış Sayısı</div>
+            </div>
+        </div>
+
+        <!-- Game Canvas -->
+        <div class="game-canvas" id="game-canvas">
+            <div class="polygon-bg"></div>
+            
+            <!-- Game Target -->
+            <div class="game-target">
+                <div class="game-target-ring" style="width: 300px; height: 300px;"></div>
+                <div class="game-target-ring" style="width: 240px; height: 240px;"></div>
+                <div class="game-target-ring" style="width: 180px; height: 180px;"></div>
+                <div class="game-target-ring" style="width: 120px; height: 120px;"></div>
+                <div class="game-target-ring" style="width: 60px; height: 60px;"></div>
+                <div class="game-target-center"></div>
+            </div>
+
+            <!-- Crosshair -->
+            <div class="crosshair" id="crosshair">
+                <div class="crosshair-circle"></div>
+                <div class="crosshair-line vertical"></div>
+                <div class="crosshair-line horizontal"></div>
+                <div class="crosshair-dot"></div>
+                <div class="crosshair-sight"></div>
+            </div>
+
+            <!-- Shots Container -->
+            <div id="shots-container"></div>
+        </div>
+
+        <!-- Controls Info -->
+        <div class="controls-info">
+            <p class="controls-title" data-tr="Nasıl Oynanır?" data-en="How to Play?">Nasıl Oynanır?</p>
+            <div class="controls-text">
+                <span data-tr="🖱️ Bilgisayar: Fare ile nişan al, sağ tık ile ateş et" data-en="🖱️ PC: Aim with mouse, right click to shoot">
+                    🖱️ Bilgisayar: Fare ile nişan al, sağ tık ile ateş et
+                </span>
+                <span data-tr="📱 Mobil: Parmağınla nişan al ve dokun" data-en="📱 Mobile: Aim with finger and tap">
+                    📱 Mobil: Parmağınla nişan al ve dokun
+                </span>
+            </div>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="reset-container">
+            <button class="reset-btn" id="reset-game">
+                <span>🔄</span>
+                <span data-tr="Oyunu Sıfırla" data-en="Reset Game">Oyunu Sıfırla</span>
+            </button>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div class="game-over-modal" id="game-over-modal">
+            <div class="modal-content">
+                <h2 data-tr="Oyun Bitti!" data-en="Game Over!">Oyun Bitti!</h2>
+                <div class="final-score">
+                    <div class="final-score-value" id="final-score">0</div>
+                    <div class="final-score-label" data-tr="Toplam Puan" data-en="Total Score">Toplam Puan</div>
+                </div>
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <div class="final-stat-label" data-tr="Atış Sayısı" data-en="Shot Count">Atış Sayısı</div>
+                        <div class="final-stat-value" id="final-shots">0</div>
+                    </div>
+                    <div class="final-stat">
+                        <div class="final-stat-label" data-tr="Ortalama" data-en="Average">Ortalama</div>
+                        <div class="final-stat-value" id="final-average">0</div>
+                    </div>
+                </div>
+                <p class="performance-message" id="performance-message">🏆 Mükemmel Atış!</p>
+                <div class="modal-buttons">
+                    <button class="modal-btn primary" id="play-again">
+                        <span>🔄</span>
+                        <span data-tr="Yeniden Oyna" data-en="Play Again">Yeniden Oyna</span>
+                    </button>
+                    <button class="modal-btn secondary" id="back-to-menu-modal">
+                        <span>🏠</span>
+                        <span data-tr="Ana Menüye Dön" data-en="Back to Menu">Ana Menüye Dön</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="animation.js"></script>
+</body>
+</html>
